@@ -3,7 +3,12 @@ import Head from 'next/head'
 import { AppProps } from 'next/app'
 import { ThemeProvider } from '@material-ui/core/styles'
 import CssBaseline from '@material-ui/core/CssBaseline'
-import theme from '../src/theme'
+import { ReactReduxFirebaseProvider } from 'react-redux-firebase'
+import { Provider } from 'react-redux'
+
+import theme from 'src/theme'
+import { store } from '@/state'
+import { firebaseReduxProps } from '@/state/firebase'
 
 export default function App(props: AppProps) {
   const { Component, pageProps } = props
@@ -17,18 +22,24 @@ export default function App(props: AppProps) {
   }, [])
 
   return (
-    <React.Fragment>
-      <Head>
-        <title>My page</title>
-        <meta
-          name="viewport"
-          content="minimum-scale=1, initial-scale=1, width=device-width"
-        />
-      </Head>
-      <ThemeProvider theme={theme}>
-        <CssBaseline />
-        <Component {...pageProps} />
-      </ThemeProvider>
-    </React.Fragment>
+    <Provider store={store}>
+      <ReactReduxFirebaseProvider
+        firebase={firebaseReduxProps.firebase}
+        config={firebaseReduxProps.config}
+        dispatch={store.dispatch}
+      >
+        <Head>
+          <title>My page</title>
+          <meta
+            name="viewport"
+            content="minimum-scale=1, initial-scale=1, width=device-width"
+          />
+        </Head>
+        <ThemeProvider theme={theme}>
+          <CssBaseline />
+          <Component {...pageProps} />
+        </ThemeProvider>
+      </ReactReduxFirebaseProvider>
+    </Provider>
   )
 }
