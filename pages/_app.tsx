@@ -24,8 +24,7 @@ export default function App(props: AppProps) {
   return (
     <Provider store={store}>
       <ReactReduxFirebaseProvider
-        firebase={firebaseReduxProps.firebase}
-        config={firebaseReduxProps.config}
+        {...firebaseReduxProps}
         dispatch={store.dispatch}
       >
         <Head>

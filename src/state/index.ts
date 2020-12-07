@@ -28,6 +28,13 @@ const rootReducer = combineReducers<RootReducerState>({
 export const store = configureStore({
   reducer: rootReducer,
   enhancers: [firestoreEnhancer],
+  middleware: (getDefaultMiddleware) =>
+    getDefaultMiddleware({
+      serializableCheck: {
+        ignoredActions: ['@@reactReduxFirebase/LOGIN'],
+        ignoredPaths: ['auth', 'profile.token', 'firebase.profile.token'],
+      },
+    }),
 })
 
 export type RootState = ReturnType<typeof rootReducer>

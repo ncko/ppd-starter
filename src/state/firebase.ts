@@ -1,7 +1,7 @@
 import firebase from 'firebase/app'
 import 'firebase/auth'
 import 'firebase/firestore'
-import { reduxFirestore } from 'redux-firestore'
+import { reduxFirestore, createFirestoreInstance } from 'redux-firestore'
 import { firebaseConfig } from 'config'
 
 if (!firebase.apps.length) {
@@ -19,8 +19,9 @@ export const firebaseReduxProps = {
   firebase,
   config: {
     userProfile: 'users',
-    userFirestoreForProfile: true,
+    useFirestoreForProfile: true,
   },
+  createFirestoreInstance,
 }
 
 export { firebaseReducer } from 'react-redux-firebase'
