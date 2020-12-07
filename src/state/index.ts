@@ -6,10 +6,14 @@ import {
 } from '@reduxjs/toolkit'
 import {
   firebaseReducer,
+  FirebaseReducer,
   firestoreReducer,
   firestoreEnhancer,
+  getFirebase,
+  getFirestore,
+  reactReduxFirebaseActions,
+  reactFirestoreConstants,
 } from './firebase'
-import { FirebaseReducer } from 'react-redux-firebase'
 
 interface Profile {
   email: string
@@ -31,8 +35,22 @@ export const store = configureStore({
   middleware: (getDefaultMiddleware) =>
     getDefaultMiddleware({
       serializableCheck: {
-        ignoredActions: ['@@reactReduxFirebase/LOGIN'],
-        ignoredPaths: ['auth', 'profile.token', 'firebase.profile.token'],
+        ignoredActions: [
+          // just ignore every redux-firebase and react-redux-firebase action type
+          ...Object.keys(reactFirestoreConstants.actionTypes).map(
+            (type) => `${reactFirestoreConstants.actionsPrefix}/${type}`
+          ),
+          ...Object.keys(reactReduxFirebaseActions).map(
+            (type) => `@@reactReduxFirebase/${type}`
+          ),
+        ],
+        ignoredPaths: ['firebase', 'firestore'],
+      },
+      thunk: {
+        extraArgument: {
+          getFirebase,
+          getFirestore,
+        },
       },
     }),
 })

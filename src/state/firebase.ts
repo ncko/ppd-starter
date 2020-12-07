@@ -24,5 +24,14 @@ export const firebaseReduxProps = {
   createFirestoreInstance,
 }
 
-export { firebaseReducer } from 'react-redux-firebase'
-export { firestoreReducer } from 'redux-firestore'
+export {
+  firebaseReducer,
+  FirebaseReducer,
+  getFirebase,
+  actionTypes as reactReduxFirebaseActions,
+} from 'react-redux-firebase'
+export {
+  firestoreReducer,
+  getFirestore,
+  constants as reactFirestoreConstants,
+} from 'redux-firestore'
