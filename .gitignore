@@ -34,4 +34,10 @@ yarn-error.log*
 .vercel
 
 # custom
-/config
+/config/index.ts
+.firebaserc
+firebase.json
+firestore.indexes.json
+firestore.rules
+firebase-debug.log
+.firebase/

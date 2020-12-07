@@ -4,17 +4,30 @@ import {
   ThunkAction,
   Action,
 } from '@reduxjs/toolkit'
-import { auth } from './auth'
-import { firebaseReducer, firestoreReducer } from './firebase'
+import {
+  firebaseReducer,
+  firestoreReducer,
+  firestoreEnhancer,
+} from './firebase'
+import { FirebaseReducer } from 'react-redux-firebase'
 
-const rootReducer = combineReducers({
-  auth: auth.reducer,
+interface Profile {
+  email: string
+}
+
+interface RootReducerState {
+  firebase: FirebaseReducer.Reducer<Profile>
+  firestore: any
+}
+
+const rootReducer = combineReducers<RootReducerState>({
   firebase: firebaseReducer,
   firestore: firestoreReducer,
 })
 
 export const store = configureStore({
   reducer: rootReducer,
+  enhancers: [firestoreEnhancer],
 })
 
 export type RootState = ReturnType<typeof rootReducer>
