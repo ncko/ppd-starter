@@ -1,6 +1,8 @@
 # PPD-Starter
 
 ## Notes
+
+### Strategy on async requests
 There are 3 categories of requests:
 1. Calls to firebase
 2. Calls to backend
@@ -13,3 +15,7 @@ New devs will have to understand the distinction between these different request
 * `dispatch(signUp({ email, password }))`
 * `dispatch(signOut())`
 * `dispatch(enroll({ member }))`
+
+### TODO
+* MirageJS to mock api calls
+* Setup firebase emulator
