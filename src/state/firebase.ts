@@ -2,7 +2,7 @@ import firebase from 'firebase/app'
 import 'firebase/auth'
 import 'firebase/firestore'
 import { reduxFirestore, createFirestoreInstance } from 'redux-firestore'
-import { firebaseConfig } from 'config'
+import { firebaseConfig } from '@/constants'
 
 if (!firebase.apps.length) {
   firebase.initializeApp(firebaseConfig)

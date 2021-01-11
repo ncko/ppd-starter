@@ -29,12 +29,12 @@ yarn-error.log*
 .env.development.local
 .env.test.local
 .env.production.local
+.env
 
 # vercel
 .vercel
 
 # custom
-/config/index.ts
 .firebaserc
 firebase.json
 firestore.indexes.json

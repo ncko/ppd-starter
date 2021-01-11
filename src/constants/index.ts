@@ -1,3 +1,5 @@
+export * from './firebase'
+
 export enum Routes {
   Home = '/',
   Dashboard = '/',
