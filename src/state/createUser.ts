@@ -12,11 +12,10 @@ interface Extras {
   getFirebase: () => ExtendedFirebaseInstance
 }
 
-export const createUser = createAsyncThunk<
-  UserCredential,
-  Props,
-  { extra: Extras }
->('auth/createUser', async (args, { extra, rejectWithValue }) => {
+export async function createUserWithEmailAndPassword(
+  args: Props,
+  { extra, rejectWithValue }
+) {
   const { email, password } = args
   const { getFirebase } = extra
   const auth = getFirebase().auth()
@@ -26,4 +25,10 @@ export const createUser = createAsyncThunk<
   } catch (error) {
     return rejectWithValue(error.message)
   }
-})
+}
+
+export const createUser = createAsyncThunk<
+  UserCredential,
+  Props,
+  { extra: Extras }
+>('auth/createUser', createUserWithEmailAndPassword)

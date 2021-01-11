@@ -1,8 +1,8 @@
-import * as React from 'react'
-import clsx from 'clsx'
+import React from 'react'
+import MuiLink, { LinkProps as MuiLinkProps } from '@material-ui/core/Link'
 import { useRouter } from 'next/router'
 import NextLink, { LinkProps as NextLinkProps } from 'next/link'
-import MuiLink, { LinkProps as MuiLinkProps } from '@material-ui/core/Link'
+import clsx from 'clsx'
 
 type NextComposedProps = Omit<
   React.AnchorHTMLAttributes<HTMLAnchorElement>,
@@ -51,7 +51,7 @@ export type LinkProps = LinkPropsBase &
 
 // A styled version of the Next.js Link component:
 // https://nextjs.org/docs/#with-link
-function Link(props: LinkProps) {
+function Index(props: LinkProps) {
   const {
     href,
     activeClassName = 'active',
@@ -90,5 +90,5 @@ function Link(props: LinkProps) {
 }
 
 export default React.forwardRef<HTMLAnchorElement, LinkProps>((props, ref) => (
-  <Link {...props} innerRef={ref} />
+  <Index {...props} innerRef={ref} />
 ))

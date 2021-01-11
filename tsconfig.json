@@ -18,7 +18,11 @@
       "@/components/*": ["src/components/*"],
       "@/state": ["src/state/index"],
       "@/state/*": ["src/state/*"],
-      "@/containers/*": ["src/containers/*"]
+      "@/containers/*": ["src/containers/*"],
+      "@/constants": ["src/constants/index"],
+      "@/layouts/*": ["src/layouts/*"],
+      "@/theme": ["src/theme"],
+      "@/test-utils": ["test/test-utils"]
     }
   },
   "exclude": ["node_modules", ".next", "out"],
