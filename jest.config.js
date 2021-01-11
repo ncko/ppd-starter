@@ -18,15 +18,15 @@ module.exports = {
     '\\.(gif|ttf|eot|svg|png)$': '<rootDir>/test/__mocks__/fileMock.js',
     '@/components/(.*)': '<rootDir>/src/components/$1',
     '@/containers/(.*)': '<rootDir>/src/containers/$1',
-    "@/state": '<rootDir>/src/state',
-    "@/constants": '<rootDir>/src/constants',
-    "@/layouts/(.*)": '<rootDir>/src/layouts/$1',
-    "@/theme": '<rootDir>/src/theme',
-    "@/test-utils": '<rootDir>/test/test-utils',
+    '@/state': '<rootDir>/src/state',
+    '@/constants': '<rootDir>/src/constants',
+    '@/layouts/(.*)': '<rootDir>/src/layouts/$1',
+    '@/theme': '<rootDir>/src/theme',
+    '@/test-utils': '<rootDir>/test/test-utils',
   },
   globals: {
     'ts-jest': {
-      tsConfig: './tsconfig.jest.json'
-    }
-  }
-};
+      tsConfig: './tsconfig.jest.json',
+    },
+  },
+}

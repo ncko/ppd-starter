@@ -1,9 +1,14 @@
 {
   "extends": "./tsconfig.json",
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", "**/*.js", "./jest.config.ts"],
+  "include": [
+    "next-env.d.ts",
+    "**/*.ts",
+    "**/*.tsx",
+    "**/*.js",
+    "./jest.config.ts"
+  ],
   "compilerOptions": {
     "jsx": "react",
     "isolatedModules": false
-  },
-
+  }
 }
